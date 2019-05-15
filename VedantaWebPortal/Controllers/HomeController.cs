@@ -13,9 +13,17 @@ namespace VedantaWebPortal.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Dashboard";
-            ViewData["titlebar"] = "Dashboard";
-            return View();
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Dashboard";
+                ViewData["titlebar"] = "Dashboard";
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
         }
              
 

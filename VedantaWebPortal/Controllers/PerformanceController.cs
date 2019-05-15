@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace VedantaWebPortal.Controllers
@@ -10,73 +11,136 @@ namespace VedantaWebPortal.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Performance >> Overall Plant";
-            ViewData["path"] = "";
-            return View();
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> Overall Plant";
+                ViewData["path"] = "";
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult OverallPlant()
         {
-            ViewData["Title"] = "Performance >> Overall Plant";
-            ViewData["path"] = "";
-            return View("Index");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> Overall Plant";
+                ViewData["path"] = "";
+                return View("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         /***********540MW START**************/
         public IActionResult UnitOnefft()
         {
-            ViewData["Title"] = "Performance >> 540 MW > Unit #1";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "540MW";
-            ViewData["path3"] = "Unit1";
-            return View("UnitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 540 MW > Unit #1";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "540MW";
+                ViewData["path3"] = "Unit1";
+                return View("UnitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult UnitTwofft()
         {
-            ViewData["Title"] = "Performance >> 540 MW > Unit #2";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "540MW";
-            ViewData["path3"] = "Unit2";
-            return View("UnitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 540 MW > Unit #2";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "540MW";
+                ViewData["path3"] = "Unit2";
+                return View("UnitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult UnitThreefft()
         {
-            ViewData["Title"] = "Performance >> 540 MW > Unit #3";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "540MW";
-            ViewData["path3"] = "Unit3";
-            return View("UnitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 540 MW > Unit #3";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "540MW";
+                ViewData["path3"] = "Unit3";
+                return View("UnitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult UnitFourfft()
         {
-            ViewData["Title"] = "Performance >> 540 MW > Unit #4";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "540MW";
-            ViewData["path3"] = "Unit4";
-            return View("UnitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 540 MW > Unit #4";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "540MW";
+                ViewData["path3"] = "Unit4";
+                return View("UnitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult BopDcsfft()
         {
-            ViewData["Title"] = "Performance >> 540 MW > BOP";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "540MW";
-            ViewData["path3"] = "BOP";
-            return View("UnitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 540 MW > BOP";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "540MW";
+                ViewData["path3"] = "BOP";
+                return View("UnitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult Boilerfft()
         {
-            ViewData["Title"] = "Performance >> 540 MW > Boiler";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "540MW";
-            ViewData["path3"] = "Boiler";
-            return View("boilerPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 540 MW > Boiler";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "540MW";
+                ViewData["path3"] = "Boiler";
+                return View("boilerPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult Turbinefft()
         {
-            ViewData["Title"] = "Performance >> 540 MW > Turbine";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "540MW";
-            ViewData["path3"] = "Turbine";
-            return View("turbinePerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 540 MW > Turbine";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "540MW";
+                ViewData["path3"] = "Turbine";
+                return View("turbinePerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         /***********540MW END**************/
@@ -84,59 +148,108 @@ namespace VedantaWebPortal.Controllers
         /***********1200MW START**************/
         public IActionResult UnitOnetwh()
         {
-            ViewData["Title"] = "Performance >> 1200 MW > Unit #1";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "1200MW";
-            ViewData["path3"] = "Unit1";
-            return View("unitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 1200 MW > Unit #1";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "1200MW";
+                ViewData["path3"] = "Unit1";
+                return View("unitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult UnitTwotwh()
         {
-            ViewData["Title"] = "Performance >> 1200 MW > Unit #2";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "1200MW";
-            ViewData["path3"] = "Unit2";
-            return View("unitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 1200 MW > Unit #2";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "1200MW";
+                ViewData["path3"] = "Unit2";
+                return View("unitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult UnitThreetwh()
         {
-            ViewData["Title"] = "Performance >> 1200 MW > Unit #3";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "1200MW";
-            ViewData["path3"] = "Unit3";
-            return View("unitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 1200 MW > Unit #3";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "1200MW";
+                ViewData["path3"] = "Unit3";
+                return View("unitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult UnitFourtwh()
         {
-            ViewData["Title"] = "Performance >> 1200 MW > Unit #4";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "1200MW";
-            ViewData["path3"] = "Unit4";
-            return View("unitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 1200 MW > Unit #4";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "1200MW";
+                ViewData["path3"] = "Unit4";
+                return View("unitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult BopDcstwh()
         {
-            ViewData["Title"] = "Performance >> 1200 MW > BOP";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "1200MW";
-            ViewData["path3"] = "BOP";
-            return View("unitPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 1200 MW > BOP";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "1200MW";
+                ViewData["path3"] = "BOP";
+                return View("unitPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult Boilertwh()
         {
-            ViewData["Title"] = "Performance >> 1200 MW > Boiler";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "1200MW";
-            ViewData["path3"] = "Boiler";
-            return View("boilerPerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 1200 MW > Boiler";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "1200MW";
+                ViewData["path3"] = "Boiler";
+                return View("boilerPerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult Turbinetwh()
         {
-            ViewData["Title"] = "Performance >> 1200 MW > Turbine";
-            ViewData["path1"] = "PERFORMANCE";
-            ViewData["path2"] = "1200MW";
-            ViewData["path3"] = "Turbine";
-            return View("turbinePerformance");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Performance >> 1200 MW > Turbine";
+                ViewData["path1"] = "PERFORMANCE";
+                ViewData["path2"] = "1200MW";
+                ViewData["path3"] = "Turbine";
+                return View("turbinePerformance");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
 
         /***********1200MW END**************/

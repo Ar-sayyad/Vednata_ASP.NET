@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace VedantaWebPortal.Controllers
@@ -10,27 +11,55 @@ namespace VedantaWebPortal.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Reports >> Daily Perf Reports";
-            ViewData["path"] = "http://bldb/ReportServer_SSRS/Pages/ReportViewer.aspx?%2fBalco_Power_Report%2fPerformanceReport&rs:Embed=true";
-            return View();
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Reports >> Daily Perf Reports";
+                ViewData["path"] = "http://bldb/ReportServer_SSRS/Pages/ReportViewer.aspx?%2fBalco_Power_Report%2fPerformanceReport&rs:Embed=true";
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult Daily()
         {
-            ViewData["Title"] = "Reports >> Daily Perf Reports";
-            ViewData["path"] = "http://bldb/ReportServer_SSRS/Pages/ReportViewer.aspx?%2fBalco_Power_Report%2fPerformanceReport&rs:Embed=true";
-            return View("Index");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Reports >> Daily Perf Reports";
+                ViewData["path"] = "http://bldb/ReportServer_SSRS/Pages/ReportViewer.aspx?%2fBalco_Power_Report%2fPerformanceReport&rs:Embed=true";
+                return View("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
         public IActionResult RealtimePerf()
         {
-            ViewData["Title"] = "Reports >> Real-Time Perf Reports";
-            ViewData["path"] = "http://bldb/ReportServer_SSRS/Pages/ReportViewer.aspx?%2fBalco_Power_Report%2fPerformanceReportSnapshot&rs:Embed=true";
-            return View("Index");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Reports >> Real-Time Perf Reports";
+                ViewData["path"] = "http://bldb/ReportServer_SSRS/Pages/ReportViewer.aspx?%2fBalco_Power_Report%2fPerformanceReportSnapshot&rs:Embed=true";
+                return View("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
-        public IActionResult DailyGeneration()
+        public IActionResult DailyGeneration() //LINK CHNAGEING FURTHER
         {
-            ViewData["Title"] = "Reports >> Daily Generation Reports";
-            ViewData["path"] = "http://bldb/ReportServer_SSRS/Pages/ReportViewer.aspx?%2fBalco_Power_Report%2fPerformanceReportSnapshot&rs:Embed=true";//LINK CHNAGEING FURTHER
-            return View("Index");
+            if (HttpContext.Session.GetString("UserType") != null)
+            {
+                ViewData["Title"] = "Reports >> Daily Generation Reports";
+                ViewData["path"] = "http://bldb/ReportServer_SSRS/Pages/ReportViewer.aspx?%2fBalco_Power_Report%2fPerformanceReportSnapshot&rs:Embed=true";
+                return View("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
     }
 }

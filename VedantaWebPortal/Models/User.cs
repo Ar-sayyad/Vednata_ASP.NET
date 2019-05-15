@@ -56,7 +56,6 @@ namespace VedantaWebPortal.Models
                     objUserModel.LastName = Convert.ToString(objSqlDataReader["lname"]);
                     objUserModel.UserType = Convert.ToString(objSqlDataReader["userType"]);
                     objUserModel.UserName = Convert.ToString(objSqlDataReader["username"]);
-
                 }
             }
             catch (Exception)
